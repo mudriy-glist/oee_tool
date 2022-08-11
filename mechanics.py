@@ -2,7 +2,11 @@ import pandas as pd
 from settings import FILE_NAME
 
 def data_process(data_dict, unique_machines):
+
+    #instance for data from excel file in pandas dataframe
     df = pd.read_excel(f"./{FILE_NAME}")
+
+    #remap dataframe
     df = pd.DataFrame({
             "machine" : df["TSWCID"],
             "part_no" : df["WOPartNo"],
@@ -16,8 +20,13 @@ def data_process(data_dict, unique_machines):
             "op_complete" : df["TSOpComplete"],
             "date" : None
         })
+
+    #add date column to dataframe
     df["date"] = [d.date() for d in df["start_time"]]
 
+#   algorithm to pull data from dataframe and populate data_dict
+#   {'MACHINE': {'DATE':[QTY, TIME_TOTAL], 'DATE':[QTY, TIME_TOTAL]},
+#   'MACHINE': {'DATE':[QTY, TIME_TOTAL], 'DATE':[QTY, TIME_TOTAL]}}
     for u in unique_machines:
         data_dict[u] = {}
         for i in range(len(df)):

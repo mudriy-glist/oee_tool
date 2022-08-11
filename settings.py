@@ -1,5 +1,10 @@
+#target time which is used to calculate OEE first key
 target_time = 18.316
+
+#declare dictionary
 data_dict = {}
+
+#List of machines that will be pulled from excel
 unique_machines = ['YAMAZAKI LATHE', 'VERT. MCING CEN',
 'VAC-BLAST', 'V/C SMART-530C', 'V/C SMART-430A',
 'TOOL ROOM', 'T_R_S GRINDER', 'T_R_PED DRILL',
@@ -22,4 +27,6 @@ unique_machines = ['YAMAZAKI LATHE', 'VERT. MCING CEN',
 'DEBURR', 'CENTRE LATHES', 'BAR STORES  CUT',
 'BAR STORES', 'ASSY STORES ISS', 'ASSEMBLY INSP.', 'ASSEMBLY', '7A SPIRAL BEVEL',
 '2A CONIFLEX BEV', '104 C/FLEX BEV', '**REWORK**']
+
+#Data input filename
 FILE_NAME = "export_oee.xlsx"
